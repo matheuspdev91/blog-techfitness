@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🧠 TechFit Blog
 
 Blog desenvolvido com **Django** que une dois universos: **tecnologia e fitness**.
@@ -135,3 +136,7 @@ Desenvolvedor em formação com interesse em:
 * SEO para blog
 * Deploy em produção
 * Integração com APIs de IA
+=======
+# blog-techfitness
+Blog sobre tecnologia e finess 
+>>>>>>> 238cbf5090b70448f35a49013199120d67f5cc5c

@@ -1,0 +1,55 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+
+<h1 class="mb-4">DevFit Lab</h1>
+<h2 class="text-muted mb-5">Conhecimento Tech e Fitness</h2>
+
+<form method="get" style="margin-bottom: 20px;">
+    <input type="text" name="q" placeholder="Buscar posts..." value="{{ query }}" class="form-control d-inline-block w-auto">
+    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+</form>
+
+<div class="row">
+{% for post in page_obj %}
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm border-0">
+        {% if post.imagem %}
+        <img src="{{ post.imagem.url }}" class="card-img-top" 
+        style="height:220px; object-fit:cover;" alt="{{ post.titulo }}">
+        {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title fw-bold">
+                <a href="{% url 'post_detail' post.slug %}" class="text-decoration-none">
+                    {{ post.titulo }}
+                </a>
+            </h5>
+
+            <p class="card-text">
+                {{ post.conteudo|truncatewords:20 }}
+            </p>
+
+            <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">
+                Ler mais
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+<div class="pagination mt-4 mb-5">
+    {% if page_obj.has_previous %}
+    <a href="?q={{ query }}&page=1" class="btn btn-sm btn-outline-secondary me-2">Primeira</a>
+    <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-secondary me-2">Anterior</a>
+    {% endif %}
+
+    <span class="align-self-center mx-3">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+    <a href="?q={{ query }}&page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-secondary ms-2">Próxima</a>
+    <a href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-secondary ms-2">Última</a>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🧠 TechFit Blog
 
 Blog desenvolvido com **Django** que une dois universos: **tecnologia e fitness**.

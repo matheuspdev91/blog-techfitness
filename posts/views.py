@@ -2,6 +2,26 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.core.paginator import Paginator
 from django.db.models import Q
+from .models import Post, Categoria
+
+
+
+def post_por_categoria(request, slug):
+    categoria = get_object_or_404(Categoria, slug=slug)
+
+    posts =  Post.objects.filter(categoria=categoria).order_by('-criado_em')
+    total_posts = posts.count()
+
+
+    paginator = Paginator(posts, 5)
+    page_number = request.GET.get("page", 1)
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "posts/lista_posts.html",{
+        "page_obj": page_obj,
+        "categoria": categoria
+    })
+
 
 def lista_posts(request):
 

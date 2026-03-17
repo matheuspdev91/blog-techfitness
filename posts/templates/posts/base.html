@@ -37,17 +37,13 @@ data-bs-target="#navbarNav">
 <a class="nav-link" href="/">Home</a>
 </li>
 
+{% for categoria in categorias_menu %}
 <li class="nav-item">
-<a class="nav-link" href="#">Tech</a>
+    <a class="nav-link" href="{% url 'posts_categoria' categoria.slug %}">
+        {{ categoria.nome }}
+    </a>
 </li>
-
-<li class="nav-item">
-<a class="nav-link" href="#">Fitness</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="#">IA</a>
-</li>
+{% endfor %}
 
 <li class="nav-item">
 <a class="nav-link" href="#">Sobre</a>

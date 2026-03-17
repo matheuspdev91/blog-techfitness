@@ -1,11 +1,18 @@
 {% extends 'posts/base.html' %}
+{% load blog_extras %}
 {% block content %}
 
 <h1 class="mb-4">DevFit Lab</h1>
-<h2 class="text-muted mb-5">Conhecimento Tech e Fitness</h2>
+
+{% if categoria %}
+<h2 class="text-muted mb-5">Categoria: {{ categoria.nome }}</h2>
+{% else %}
+
+<h2 class="text-muted mb5">Conhecimento Tech e Ftiness</h2>
+{% endif %}
 
 <form method="get" style="margin-bottom: 20px;">
-    <input type="text" name="q" placeholder="Buscar posts..." value="{{ query }}" class="form-control d-inline-block w-auto">
+    <input type="text" name="q" placeholder="Buscar posts..." value="{{ query|default:'' }}" class="form-control d-inline-block w-auto">
     <button type="submit" class="btn btn-outline-primary">Buscar</button>
 </form>
 
@@ -15,19 +22,23 @@
     <div class="card h-100 shadow-sm border-0">
         {% if post.imagem %}
         <img src="{{ post.imagem.url }}" class="card-img-top" 
-        style="height:220px; object-fit:cover;" alt="{{ post.titulo }}">
+        style="height:220px; object-fit:cover;">
         {% endif %}
 
         <div class="card-body">
             <h5 class="card-title fw-bold">
-                <a href="{% url 'post_detail' post.slug %}" class="text-decoration-none">
-                    {{ post.titulo }}
-                </a>
+            <a href="{% url 'post_detail' post.slug %}" class="text-decoration-none">
+            {{ post.titulo }}
+            </a>
             </h5>
 
-            <p class="card-text">
-                {{ post.conteudo|truncatewords:20 }}
+            <p class="text-muted small mb-2">
+                {{ post.criado_em|date:"d M Y" }} • {{ post_conteudo|tempo_leitura }}
             </p>
+
+            <div class="card-text">
+                {{ post.conteudo|truncatewords:20 }}
+            </div>
 
             <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">
                 Ler mais

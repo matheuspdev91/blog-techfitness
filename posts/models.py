@@ -7,6 +7,8 @@ class Post(models.Model):
     conteudo = models.TextField()
     criado_em = models.DateField(auto_now_add=True)
     imagem = models.ImageField(upload_to='posts/', blank=True, null=True)
+    likes = models.PositiveIntegerField(default=0)
+    dislikes = models.PositiveIntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -38,3 +40,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class Comentario(models.Model):
+    post =  models.ForeignKey('POST', on_delete=models.CASCADE, related_name='comentario')
+    nome = models.CharField(max_length=100)
+    conteudo = models.TextField()
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Comentário de {self.nome}'

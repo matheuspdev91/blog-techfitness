@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .models import Post, Categoria
+from .models import Post, Categoria, Comentario
 
 
 
@@ -56,4 +56,30 @@ def post_detail(request, slug):
         'post': post
     })
 
-   
+def like_post(request, slug):
+    post =  get_object_or_404(Post, slug=slug)
+    post.likes += 1
+    post.save()
+    return redirect('post_detail', slug=slug)
+
+def dislike_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.dislikes += 1
+    post.save()
+    return redirect('post_detail', slug=slug)
+
+def adicionar_comentario(request, slug):
+    post =  get_object_or_404(Post, slug=slug)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        conteudo = request.POST.get('conteudo')
+
+        if nome and conteudo:
+            Comentario.objects.create(
+                post=post,
+                nome=nome,
+                conteudo=conteudo
+            )
+
+    return redirect('post_detail', slug=slug)

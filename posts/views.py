@@ -91,5 +91,11 @@ def adicionar_comentario(request, slug):
 
 
 def carregar_dados(request):
-    call_command('loaddata', 'dados.json')
-    return HttpResponse("Dados carregados!")
+    from django.core.management import call_command
+    from django.http import HttpResponse
+
+    try:
+        call_command('loaddata', 'dados.json')
+        return HttpResponse("Dados carregados!")
+    except Exception as e:
+        return HttpResponse(f"Erro real: {str(e)}")

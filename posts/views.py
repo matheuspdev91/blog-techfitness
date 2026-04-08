@@ -3,6 +3,8 @@ from .models import Post
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import Post, Categoria, Comentario
+from django.core.management import call_command
+from django.http import HttpResponse
 
 
 
@@ -83,3 +85,11 @@ def adicionar_comentario(request, slug):
             )
 
     return redirect('post_detail', slug=slug)
+
+
+
+
+
+def carregar_dados(request):
+    call_command('loaddata', 'dados.json')
+    return HttpResponse("Dados carregados!")

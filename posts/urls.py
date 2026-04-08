@@ -2,6 +2,7 @@ from django.urls import path
 from .views import lista_posts, post_detail, post_por_categoria, like_post, dislike_post, adicionar_comentario
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import carregar_dados
 
 
 urlpatterns =[
@@ -11,6 +12,7 @@ urlpatterns =[
     path('likes/<slug:slug>/', like_post, name='like_post'),
     path('dislike/<slug:slug>/', dislike_post, name='dislike_post'),
     path('post/<slug:slug>/comentar/', adicionar_comentario, name='adicionar_comentario'),
+    path('carregar/', carregar_dados),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

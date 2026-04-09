@@ -126,4 +126,8 @@ STATICFILES_DIRS =[
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+CSRF_TRUSTED_ORIGIN = [
+    "https://blog-techfitness-production.up.railway.app"
+]
+
 

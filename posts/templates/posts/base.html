@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV FIT LAB</title>
+    <title>Full-Stack Fitness</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
@@ -17,9 +17,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 <div class="container">
 
-<a class="navbar-brand fw-bold" href="/">
-DevFit Lab
-</a>
+    <img src="/media/posts/logo_nova.png"
+     alt="Full-Stack Fitness"
+     class="logo_navbar"
+     >
 
 <button class="navbar-toggler" type="button"
 data-bs-toggle="collapse"
@@ -46,7 +47,7 @@ data-bs-target="#navbarNav">
 {% endfor %}
 
 <li class="nav-item">
-<a class="nav-link" href="#">Sobre</a>
+<a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
 </li>
 
 </ul>
@@ -68,12 +69,7 @@ Buscar
 </nav>
     {% block hero %}
     <div class="hero-blog">
-        <img src="/media/posts/Tecnologia_e_fitness_em_harmonia.png" class="hero-img" alt="Tecnologia e Fitness">
-
-        <div class="hero-text">
-            <h1>Techno Fit</h1>
-            <p>Tecnologia e Fitness em harmonia</p>
-        </div>
+        <img src="/media/posts/novo_banner.png" class="hero-img" alt="Tecnologia e Fitness">
 
     </div>
     {% endblock %}
@@ -84,5 +80,21 @@ Buscar
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
+<footer class="footer">
+    <div class="container text-center">
+
+        <h5>Full-Stack Fitness</h5>
+
+        <p>
+            Código Forte. Corpo Forte. Mente Forte.
+        </p>
+
+        <small>
+            © 2026 Full-Stack Fitness
+        </small>
+
+    </div>
+</footer>
 </body>
 </html>

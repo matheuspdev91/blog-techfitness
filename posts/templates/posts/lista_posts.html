@@ -2,24 +2,82 @@
 {% load blog_extras %}
 {% block content %}
 
-<h1 class="mb-4">DevFit Lab</h1>
+<p class="lead text-secondary mt-3">
+    Compartilhando minha jornada de aprendizado
+    em Django, Linux, Web Developer e a construção
+    de projetos reais
+</p>
+
+<div class="mt-4">
+    <a href="#posts" class="btn btn-success btn-lg">
+        Explorar artigos
+    </a>
+</div>
+
+</section>
+
 
 {% if categoria %}
-<h2 class="text-muted mb-5">Categoria: {{ categoria.nome }}</h2>
-{% else %}
-
-<h2 class="text-muted mb5">Conhecimento Tech e Ftiness</h2>
+<h2 class="text-muted mb-5">
+    Categoria: {{ categoria.nome }}
+</h2>
 {% endif %}
+<section class="container py-5 text-center">
+        <h2 class="display-6 fw-bold mb-">
+            Projetos em Destaque
+        </h2>
 
-<form method="get" style="margin-bottom: 20px;">
-    <input type="text" name="q" placeholder="Buscar posts..." value="{{ query|default:'' }}" class="form-control d-inline-block w-auto">
-    <button type="submit" class="btn btn-outline-primary">Buscar</button>
-</form>
+        <p class="text-center text-muted mb-5">
+            O que estou construindo atualmente
+        </p>
+   
+    <div class="row g-4">
 
-<div class="row">
+        <div class="col-md-4">
+            <div class="project-card">
+                <h4>🚀 FitFlix</h4>
+                <p>
+                Meu principal projeto atualmente.
+                Uma plataforma de treinos construída com Django.    
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="project-card">
+                <h4>💻 Full-Stack Fitness</h4>
+
+                <p>
+                 Onde documento minha jornada com programação,
+                 fitness e construção de projetos reais.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="project-card">
+                <h4>⚙️ Automações Python</h4>
+
+                <p>
+                    Scripts e ferramentas criadas para resolver
+                     problemas do dia a dia.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<h2 class="text-muted mb-5">
+    Últimos artigos
+</h2>
+
+
+<div class="row g-4" id="posts">
 {% for post in page_obj %}
 <div class="col-md-4 mb-4">
-    <div class="card h-100 shadow-sm border-0">
+    <div class="card h-100 shadow-lg border-0 card-post">
         {% if post.imagem %}
         <img src="{{ post.imagem.url }}" class="card-img-top" 
         style="height:220px; object-fit:cover;">

@@ -103,7 +103,24 @@
         color: #94a3b8 !important;
     }
 
+    .hero-desktop{
+    display:block;
+    }
+
+    .hero-mobile{
+        display:none;
+    }
+
     @media (max-width: 768px) {
+
+        .hero-desktop{
+            display: none;
+        }
+
+        .hero-mobile{
+            display: block;
+        }
+
         .logo_navbar {
             height: 80px;
         }

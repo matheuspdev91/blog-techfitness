@@ -10,9 +10,8 @@
     --muted: #94a3b8;
 }
     .hero-blog{
-        position: relative;
-        min-height: 45vh;
-        height: auto;
+       overflow: hidden;
+       position: relative;
         
     }
         
@@ -28,11 +27,9 @@
     .hero-img{
         width: 100%;
         display: block;
-        height: 100%;
+        height: 85vh;
         object-fit: cover;
-        object-position:center top;
-        position:relative;
-        z-index:0;
+        object-position: center;
     }
        
     .hero-text{
@@ -60,15 +57,6 @@
     .hero-text p{
         font-size:clamp(1.2rem, 2vw, 1.8rem);
         color: #f8fafc;
-    }
-
-    .tech {
-        color: var(--tech);
-
-    }
-
-    .fitness {
-        color: var(--fitness);
     }
 
     .card {
@@ -116,159 +104,156 @@
     }
 
     @media (max-width: 768px) {
-        .hero-blog {
-            min-height: 50vh;
-            height: auto;
+        .logo_navbar {
+            height: 80px;
         }
 
-        .hero-text {
-            padding: 15px;
-            width: 95%;
-        }
 
-        .hero-text h1 {
-            font-size: 2rem;
-        }
-    
-        .hero-text p {
-            font-size: 0.95rem;
-        }
+        .hero-blog{
+        min-height: 70vh;
     }
 
-body{
+        .hero-img{
+        height: 120vh;
+        object-fit: cover;
+    }
+
+    }
+
+    body{
     background: #07150d;
     color: var(--text);
 }
 
-.navbar {
-    background: rgba(15,23,42,.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(34,197,94,.2);
-}
+    .navbar {
+        background: rgba(15,23,42,.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(34,197,94,.2);
+    }
 
-.navbar-brand {
-    font-weight: 700;
-    color: var(--primary)!important;
-}
+    .navbar-brand {
+        font-weight: 700;
+        color: var(--primary)!important;
+    }
 
-.nav-link {
-    color: #e5e7eb;
-}
+    .nav-link {
+        color: #e5e7eb;
+    }
 
-.nav-link:hover{
-    color: var(--primary)!important;
-}
-    
-.hero-text h1{
-    color: white;
-    text-transform:uppercase
-}
+    .nav-link:hover{
+        color: var(--primary)!important;
+    }
+        
+    .hero-text h1{
+        color: white;
+        text-transform:uppercase
+    }
 
-.hero-text p{
-    color: #e2e8f0;
-}
+    .hero-text p{
+        color: #e2e8f0;
+    }
 
-.project-card{
-    background: #111827;
-    border: 1px solid rgba(34,197,94,.2);
-    border-radius: 16px;
-    padding: 25px;
-    height: 100%;
+    .project-card{
+        background: #111827;
+        border: 1px solid rgba(34,197,94,.2);
+        border-radius: 16px;
+        padding: 25px;
+        height: 100%;
 
-    transition: .3s ease;
-}
+        transition: .3s ease;
+    }
 
-.project-card:hover{
-    transform: translateY(-5px);
-    border-color: rgba(34,197,94,.6);
-    box-shadow: 0 10px 25px rgba(34,197,94,.15);
-}
+    .project-card:hover{
+        transform: translateY(-5px);
+        border-color: rgba(34,197,94,.6);
+        box-shadow: 0 10px 25px rgba(34,197,94,.15);
+    }
 
-.project-card h4{
-    color: #22c55e;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
+    .project-card h4{
+        color: #22c55e;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
 
-.project-card p{
-    color: #cbd5e1;
-    margin: 0;
-}
+    .project-card p{
+        color: #cbd5e1;
+        margin: 0;
+    }
 
-section h2{
-    color: #f8fafc;
-    font-weight: 700;
-}
+    section h2{
+        color: #f8fafc;
+        font-weight: 700;
+    }
 
-.logo_navbar{
-    height: 55px;
-    width: auto;
-    border-radius: 50%;
-}
+    .logo_navbar{
+        height: 55px;
+        width: auto;
+        border-radius: 50%;
+    }
 
-.footer{
-    margin-top:60px;
-    padding:40px 0;
+    .footer{
+        margin-top:60px;
+        padding:40px 0;
 
-    background:#0b1220;
-    border-top:1px solid rgba(34,197,94,.2);
+        background:#0b1220;
+        border-top:1px solid rgba(34,197,94,.2);
 
-    text-align:center;
-}
+        text-align:center;
+    }
 
-.footer h5{
-    color:#22c55e;
-    font-weight:700;
-}
+    .footer h5{
+        color:#22c55e;
+        font-weight:700;
+    }
 
-.footer p{
-    color:#94a3b8;
-    margin-bottom:10px;
-}
+    .footer p{
+        color:#94a3b8;
+        margin-bottom:10px;
+    }
 
-.footer small{
-    color:#64748b;
-}
+    .footer small{
+        color:#64748b;
+    }
 
-.about-card {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    background: #000000;
-    border: 1px solid rgba(12, 206, 83, 0.434);
-    border-radius: 20px;
-    padding: 35px;
-    color: #e5e7eb;
-}
+    .about-card {
+        font-size: 1.15rem;
+        line-height: 1.9;
+        background: #000000;
+        border: 1px solid rgba(12, 206, 83, 0.434);
+        border-radius: 20px;
+        padding: 35px;
+        color: #e5e7eb;
+    }
 
-.about-card p {
-    color: #e2e8f0;
-    font-size: 1.1rem;
-    line-height: 1.9;
-}
+    .about-card p {
+        color: #e2e8f0;
+        font-size: 1.1rem;
+        line-height: 1.9;
+    }
 
-.tech-card{
-    background: #000000;
-    border: 1px solid rgba(0, 161, 21, 0.397);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    color: #f8fafc;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: all .3s ease;
-}
+    .tech-card{
+        background: #000000;
+        border: 1px solid rgba(0, 161, 21, 0.397);
+        border-radius: 16px;
+        padding: 20px;
+        text-align: center;
+        color: #f8fafc;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all .3s ease;
+    }
 
-.tech-card:hover{
-    transform: translateY(-3px);
-    border-color: #00ff88;
-    box-shadow: 0 0 20px rgba(0,255,136,.36);
-}
+    .tech-card:hover{
+        transform: translateY(-3px);
+        border-color: #00ff88;
+        box-shadow: 0 0 20px rgba(0,255,136,.36);
+    }
 
-.tech-title{
-    color: #00ff88;
-    font-weight: 700;
-    text-shadow: 0 0 12px rgba(0,255,136,.34);
-}
+    .tech-title{
+        color: #00ff88;
+        font-weight: 700;
+        text-shadow: 0 0 12px rgba(0,255,136,.34);
+    }
 
     @keyframes fadehero{
         from {
